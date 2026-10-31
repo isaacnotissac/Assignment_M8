@@ -26,7 +26,7 @@ jobs:
 
       - name: Run tests
         run: |
-          python manage.py test
+          python .\csc325djangoProj\manage.py test
 
       - name: Deploy
         run: |
