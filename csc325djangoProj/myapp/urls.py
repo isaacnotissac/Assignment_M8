@@ -5,4 +5,6 @@ from myapp import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
+    path('tasks/', views.task_list, name='task-list'),
+    path('tasks/new/', views.task_create, name='task-create'),
 ]

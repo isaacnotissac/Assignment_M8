@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tasks</title>
+</head>
+<body>
+    <main>
+        <h1>Tasks</h1>
+        <p><a href="{% url 'task-create' %}">Create a task</a></p>
+        {% if tasks %}
+            <ul>
+                {% for task in tasks %}
+                    <li>
+                        <strong>{{ task.title }}</strong>
+                        — {{ task.get_status_display }}
+                        {% if task.category %}({{ task.category.name }}){% endif %}
+                        {% if task.due_date %} · Due {{ task.due_date }}{% endif %}
+                        {% if task.description %}<p>{{ task.description }}</p>{% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tasks yet.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
